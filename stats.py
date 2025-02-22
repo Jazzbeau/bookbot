@@ -11,3 +11,11 @@ def get_character_count(text):
         else:
             character_dict[lowered] = 1
     return character_dict
+
+def get_alpha_freq(char_dict):
+    char_list = []
+    for key in char_dict:
+        if key.isalpha():
+            char_list.append({key:char_dict[key]})
+    char_list.sort(reverse=True, key=lambda x:list(x.values())[0])
+    return char_list
