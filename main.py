@@ -1,23 +1,14 @@
+from stats import get_word_count
+from stats import get_character_count 
 def main():
     book_path = "./books/frankenstein.txt"
     contents = get_book_contents(book_path)
     # wc = get_word_count(contents)
     character_count = get_character_count(contents)
+    word_count = get_word_count(contents)
     # print(character_count)
-    print_letter_report(character_count)
-
-def get_word_count(text):
-    return len(text.split())
-
-def get_character_count(text):
-    character_dict = dict()
-    for char in text:
-        lowered = char.lower()
-        if lowered in character_dict:
-            character_dict[lowered] += 1
-        else:
-            character_dict[lowered] = 1
-    return character_dict
+    # print_letter_report(character_count)
+    print(f'{word_count} words found in the document')
 
 def get_book_contents(path):
     with open(path) as f:
